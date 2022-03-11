@@ -30,9 +30,9 @@ function logType(arg) {
                 console.log("array!");
             } else console.log("object!");
             break;
-        /*case "symbol":
+        case "Symbol()":
             console.log("Symbol()!");
-            break;*/
+            break;
         default:
             console.log("I have no idea!");
             break;
