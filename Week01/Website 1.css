@@ -109,7 +109,7 @@ a {
 .block {
     display: inline-block;
     text-align: justify;
-
+    vertical-align: top;
     width: 40%;
     height: 40%;
     padding: 4%;

@@ -1,6 +1,6 @@
 //Code
 function getLessThanZero(arr) {
-    var negatives = arr.filter(function (val, idx) {
+    var negatives = arr.filter(function (val) {
         return val < 0;
     });
     return negatives;
