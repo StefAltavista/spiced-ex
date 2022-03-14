@@ -1,0 +1,61 @@
+.guy {
+    display: inline-block;
+    position: relative;
+    width: 70vw;
+    height: 1000px;
+}
+
+.arms {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+}
+
+.Head {
+    transform-origin: center;
+    transform: translateX(50%);
+    width: 150px;
+    height: 150px;
+    border: 3px solid black;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+}
+
+.LeftArm {
+    transform-origin: left;
+    transform: translateX(50%) rotate(25deg);
+    width: 30%;
+    height: 0px;
+    border: 3px solid black;
+}
+
+.RightArm {
+    transform-origin: right;
+    transform: translateX(-50%) rotate(-25deg);
+    width: 30%;
+    height: 0px;
+    border: 3px solid black;
+}
+
+.Body {
+    transform-origin: left;
+    transform: translateX(50%) rotate(90deg);
+    width: 200;
+    height: 0px;
+    border: 3px solid black;
+}
+
+.LeftLeg {
+    transform-origin: left;
+    transform: rotate(25deg) translateY(-200);
+    width: 350;
+    height: 3px;
+    border: 3px solid black;
+}
+
+.RightLeg {
+    width: 350;
+    height: 3px;
+    border: 3px solid black;
+}
