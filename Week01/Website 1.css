@@ -3,7 +3,7 @@
     font-family: "Times New Roman", Times, serif;
 }
 
-.head {
+header {
     background: linear-gradient(
         90deg,
         rgb(255, 255, 255) 0%,
@@ -24,7 +24,7 @@
     float: left;
 }
 
-.Hmenu {
+.menuIcon {
     width: 35px;
     height: 35px;
     float: right;
@@ -153,36 +153,37 @@ p {
     }
 }
 
-#hamburger-menu {
+.hamburger-menu {
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.3);
-    font-family: Georgia;
+
     visibility: hidden;
 }
 
 span {
+    font-family: "Symbol";
     position: absolute;
-    font-size: 30px;
+    font-size: 14px;
     cursor: pointer;
-    top: 0;
-    right: 0;
+    top: 15px;
+    right: 15px;
 }
 
 nav {
-    padding: 20px;
+    padding: 10px;
     position: absolute;
     background-color: white;
     width: 50%;
-    max-width: 300px;
+    max-width: 200px;
     right: 0;
     top: 0;
     height: 100%;
     transform: translateX(100%);
-    transition-duration: 2s;
+    transition-duration: 1s;
 }
 
 .on nav {
@@ -190,14 +191,19 @@ nav {
 }
 
 nav li {
+    padding: 10px;
     list-style-type: none;
     font-size: 24px;
+    left: 0px;
+}
+nav li a {
+    font-family: "Symbol";
 }
 
 @media screen and (max-width: 1000px) {
     header {
-        padding: 15px;
-        height: 4%;
+        padding: 8px;
+        height: 2%;
     }
     .logo {
         width: 112px;
