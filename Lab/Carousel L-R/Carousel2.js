@@ -6,6 +6,7 @@
 
     var i = 0;
     var control = true;
+    var timeoutId;
     left();
     toLeft.addEventListener("click", function () {
         if (control == false) {
@@ -55,7 +56,7 @@
         scrollR();
 
         function scrollR() {
-            setTimeout(function () {
+            timeoutId = setTimeout(function () {
                 if (control == true) {
                     console.log("end right");
                     return;
@@ -96,7 +97,7 @@
         scrollL();
 
         function scrollL() {
-            setTimeout(function () {
+            timeoutId = setTimeout(function () {
                 if (control == false) {
                     console.log("end left");
                     return;
