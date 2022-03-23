@@ -1,14 +1,15 @@
 (function (countries) {
     var inp = $("input");
     var results = $("#results");
-
-    console.log(countries);
+    var r = "";
+    var choice = false;
 
     inp.on("input", function () {
         var val = inp.val();
-        console.log(val);
-        if (val == " ") {
-            results = [];
+        choice = false;
+
+        if (!val) {
+            results.html("");
             return;
         }
 
@@ -22,25 +23,67 @@
             }
         }
 
-        var res = "";
-
-        if (matches.length > 0) {
-            for (var a = 0; a < matches.length; a++) {
-                res += "<p>" + matches[a] + "</p>";
+        var result = "";
+        if (!choice) {
+            if (matches.length > 0) {
+                for (var a = 0; a < matches.length; a++) {
+                    result += "<p>" + matches[a] + "</p>";
+                }
+                results.html(result);
+                r = result;
+            } else if (matches.length == 0) {
+                results.html("no result");
+                r = "no result";
             }
-            results.html(res);
-        } else {
-            results.html("no result");
         }
-
         results
             .on("mouseover", "p", function (e) {
-                console.log("mouse over:", e.target);
+                e.target.classList.add("highlight");
+            })
+            .on("mouseout", "p", function (e) {
+                e.target.classList.remove("highlight");
             })
             .on("mousedown", "p", function (e) {
-                console.log("mousedown:", e.target);
+                inp.val(e.target.innerHTML);
+                results.html("");
+                choice = true;
             });
-    });
+    })
+        .on("keydown", function (e) {
+            if (e.code == "ArrowDown") {
+                if ($("#results p").hasClass("highlight")) {
+                    $("#results p.highlight").next().addClass("highlight");
+                    $("#results p.highlight").prev().removeClass("highlight");
+                } else $("#results p:nth-child(1)").addClass("highlight");
+            }
+            if (e.code == "ArrowUp") {
+                if (e.code == "ArrowUp") {
+                    $("p.highlight").prev().addClass("highlight");
+                    $("p.highlight").next().removeClass("highlight");
+                }
+                console.log(e.target, e.code);
+            }
+            if (e.code == "Backspace") {
+                choice = false;
+                results.html(r);
+            }
+            if (e.code == "Enter") {
+                choice = true;
+                inp.val($("p.highlight").html());
+                results.html("");
+            }
+        })
+        .on("blur", function () {
+            results.html("");
+            return;
+        })
+        .on("focus", function () {
+            if (!choice) {
+                results.html(r);
+            }
+
+            return;
+        });
 })([
     "Afghanistan",
     "Albania",
