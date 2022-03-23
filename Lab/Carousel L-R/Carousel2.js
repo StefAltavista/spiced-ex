@@ -7,17 +7,22 @@
     var i = 0;
     var control = true;
     var timeoutId;
-    left();
+    var dir = 0;
+    setTimeout(left, 2000);
     toLeft.addEventListener("click", function () {
         if (control == false) {
+            dir = 1;
+            clearTimeout(timeoutId);
             control = true;
-            left();
+            left(dir);
         }
     });
     toRight.addEventListener("click", function () {
         if (control == true) {
+            dir = -1;
+            clearTimeout(timeoutId);
             control = false;
-            right();
+            right(dir);
         }
     });
 
@@ -40,7 +45,7 @@
         }
     });
 
-    function right() {
+    function right(d) {
         console.log("start right, control=", control);
         for (var every = 0; every < cats.length; every++) {
             cats[every].style.transition = "0s";
@@ -53,34 +58,35 @@
         cats[i].classList.add("onscreen");
         cats[i].style.transition = "1s";
 
-        scrollR();
+        scrollR(d);
 
-        function scrollR() {
-            timeoutId = setTimeout(function () {
-                if (control == true) {
-                    console.log("end right");
-                    return;
-                }
-                cats[i].classList.remove("onscreen");
-                cats[i].classList.remove("offscreen");
-                cats[i].classList.add("toright");
+        function scrollR(di) {
+            if (control == true) {
+                console.log("end right");
+                return;
+            }
+            cats[i].classList.remove("onscreen");
+            cats[i].classList.remove("offscreen");
+            cats[i].classList.add("toright");
 
-                i++;
+            i++;
+            if (di != undefined) {
+                i = i + di;
+            }
 
-                if (i === cats.length) {
-                    i = 0;
-                }
-                cats[i].style.transition = "1s";
-                cats[i].classList.remove("offscreen");
-                cats[i].classList.remove("toright");
-                cats[i].classList.add("onscreen");
+            if (i === cats.length) {
+                i = 0;
+            }
+            cats[i].style.transition = "1s";
+            cats[i].classList.remove("offscreen");
+            cats[i].classList.remove("toright");
+            cats[i].classList.add("onscreen");
 
-                scrollR();
-            }, 2000);
+            timeoutId = setTimeout(scrollR, 2000);
         }
     }
 
-    function left() {
+    function left(d) {
         console.log("start left, control", control);
 
         for (var every = 0; every < cats.length; every++) {
@@ -94,28 +100,29 @@
         cats[i].classList.add("onscreen");
         cats[i].style.transition = "1s";
 
-        scrollL();
+        scrollL(d);
 
-        function scrollL() {
-            timeoutId = setTimeout(function () {
-                if (control == false) {
-                    console.log("end left");
-                    return;
-                }
-                cats[i].classList.remove("onscreen");
-                cats[i].classList.remove("toright");
-                cats[i].classList.add("offscreen");
-                i++;
-                if (i === cats.length) {
-                    i = 0;
-                }
-                cats[i].style.transition = "1s";
-                cats[i].classList.remove("toright");
-                cats[i].classList.remove("offscreen");
-                cats[i].classList.add("onscreen");
+        function scrollL(di) {
+            if (control == false) {
+                console.log("end left");
+                return;
+            }
+            cats[i].classList.remove("onscreen");
+            cats[i].classList.remove("toright");
+            cats[i].classList.add("offscreen");
+            i--;
+            if (di != undefined) {
+                i = i + di;
+            }
+            if (i === -1) {
+                i = cats.length - 1;
+            }
+            cats[i].style.transition = "1s";
+            cats[i].classList.remove("toright");
+            cats[i].classList.remove("offscreen");
+            cats[i].classList.add("onscreen");
 
-                scrollL();
-            }, 2000);
+            timeoutId = setTimeout(scrollL, 2000);
         }
     }
 })();
