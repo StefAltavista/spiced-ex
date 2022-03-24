@@ -2,7 +2,43 @@
     box-sizing: border-box;
     font-family: "Times New Roman", Times, serif;
 }
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+#pop {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 251, 211);
+    border-radius: 15px;
+    z-index: 1;
+    position: absolute;
+    width: 400px;
+    height: auto;
+    justify-self: center;
+    align-self: center;
+    top: 25%;
+    visibility: hidden;
+}
 
+#pop .close {
+    align-self: flex-end;
+    padding-top: 5px;
+    padding-right: 10px;
+    font-family: "Trebuchet MS";
+    cursor: pointer;
+}
+
+#pop h3 {
+    padding-left: 15px;
+}
+
+#pop p {
+    font-size: smaller;
+    padding: 15px;
+    padding-top: 0;
+}
 header {
     background: linear-gradient(
         90deg,
@@ -153,13 +189,20 @@ p {
     }
 }
 
+#darkLayer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+}
+
 .hamburger-menu {
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
 
     visibility: hidden;
 }
