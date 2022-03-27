@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    background-color: antiquewhite;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    padding: 10px;
+    font-family: "Courier New", Courier, monospace;
+    text-decoration: underline;
+}
+
+#allMemos {
+    display: inline;
+    width: 100%;
+    position: relative;
+}
+.center {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Courier New", Courier, monospace;
+    width: 500px;
+    height: auto;
+    min-height: 300px;
+    border-radius: 20px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 2s;
+}
+
+#clear {
+    margin-top: 20px;
+    width: 70px;
+    height: 30px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.left {
+    display: block;
+    width: 100px;
+    font-size: 6px;
+    margin-left: 0px;
+    position: absolute;
+}
+
+.new {
+    height: auto;
+    margin: auto;
+    transition: 2s;
+}

@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 30px;
+    font-family: "Courier New", Courier, monospace;
+    color: limegreen;
+}
+
+#code {
+    font-family: "Courier New", Courier, monospace;
+    color: limegreen;
+    width: 500px;
+    height: auto;
+    min-height: 300px;
+    background-color: black;
+    border: 1px solid lime;
+    padding: 5px;
+}
+
+#answer {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    justify-self: center;
+    top: 35%;
+    width: 200px;
+    height: 30;
+    border-radius: 20px;
+    visibility: hidden;
+    background-color: white;
+    padding: 10px;
+    font-size: 15px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+button {
+    background-color: lime;
+    margin: 15px;
+    border-radius: 20px;
+    border: 2x solid white;
+}

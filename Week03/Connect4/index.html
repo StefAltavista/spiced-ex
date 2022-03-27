@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Connect4</title>
+    <style>
+        .coin1 {
+            background-color: #a6ff00;
+        }
+        .coin2 {
+            background-color: rgb(255, 136, 0);
+        }</style>
+</head><body>
+    <header><img src="Logo.png" alt="connect 4 logo"/></header>
+
+    <main>
+<div class="left coin1">
+    <div class="player"><h3>Player 1 <input id="clr1" type="color" value="#a6ff00"></h3>
+        <h4>Human  <input type="range" min="0" max="1" step="1" class="switch" id="plType1" value="0">  Machine</h4> </div>
+        
+        
+
+</div>
+  <div id="container"> 
+      <div id="coin" class="coin1"></div>
+ <div id="board">
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+
+        </div>
+        
+        </div>
+        </div>
+        <div class="right coin2" >
+            
+            <div class="player"><h3>Player 2 <input id="clr2" type="color" value="#ff8800"></h3>
+                <h4>Human  <input type="range" min="0" max="1" step="1" class="switch" id="plType2" value="0">  Machine</h4>  </div>
+            
+        </div>
+        
+    </main>
+
+    <footer>
+    <div id="controls">
+        <button type="button" id="zeroGrav">Zerogravity</button>
+        <button type="button" id="newgame" >New Game</button></div>
+    <div id="victory" class="invisible"></div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
