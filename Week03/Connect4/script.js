@@ -1,8 +1,11 @@
+/* eslint-disable indent */
 (function () {
     var machine1_ON = $("#plType1");
     var machine2_ON = $("#plType2");
-    var slotString = ".slot:nth(";
+    var board = $("#board");
     var matrix = [];
+    var diag1 = [];
+    var diag2 = [];
     var n = 0;
     var turn = 1;
     var x, y;
@@ -23,14 +26,10 @@
     var container = $("#container");
     var pix;
 
-    console.log(machine1_ON.val());
-
     //ZeroGravity Check
     if (localStorage.getItem("zeroGravity") != undefined) {
         var getGrav = localStorage.getItem("zeroGravity");
-
         var zeroGravity = getGrav;
-        console.log(zeroGravity);
         if (zeroGravity == "true") {
             zeroGrav.addClass("on");
         }
@@ -84,11 +83,13 @@
     for (x = 0; x < 6; x++) {
         matrix[x] = [];
         for (y = 0; y < 7; y++) {
+            var slotString = ".slot:nth(";
             slotString += n;
             slotString += ")";
+            var element = '<div class="slot"></div>';
+            board.append(element);
             matrix[x][y] = $(slotString);
             n++;
-            slotString = ".slot:nth(";
         }
     }
     //define columns
@@ -186,8 +187,8 @@
             }
         }
     }
-    //vertical check
-    function verticalCheck(coinC) {
+    //orizontal check
+    function orizontalCheck(coinC) {
         for (x = 0; x < 6; x++) {
             verify = "";
             for (y = 0; y < 7; y++) {
@@ -195,6 +196,25 @@
                     verify += "w";
                 } else verify += "l";
                 if (verify.includes("wwww")) {
+                    var ver = verify.split("");
+                    var f = x;
+                    var i = 0;
+                    callback();
+                    function callback() {
+                        setTimeout(function () {
+                            if (ver[i] == "w") {
+                                console.log("w", i);
+
+                                matrix[f][i].addClass("winning");
+                            }
+
+                            i++;
+                            if (i < ver.length) {
+                                callback();
+                            }
+                        }, 250);
+                    }
+
                     victory(coinC);
                     break;
                 }
@@ -203,8 +223,8 @@
 
         return;
     }
-    //orizontal check
-    function orizontalCheck(coinC) {
+    //vertical check
+    function verticalCheck(coinC) {
         for (y = 0; y < 7; y++) {
             verify = "";
             for (x = 0; x < 6; x++) {
@@ -212,6 +232,23 @@
                     verify += "w";
                 } else verify += "l";
                 if (verify.includes("wwww")) {
+                    var ver = verify.split("");
+                    var f = y;
+                    var i = 0;
+                    callback();
+                    function callback() {
+                        setTimeout(function () {
+                            if (ver[i] == "w") {
+                                console.log("w", i);
+                                matrix[i][f].addClass("winning");
+                            }
+
+                            i++;
+                            if (i < ver.length) {
+                                callback();
+                            }
+                        }, 250);
+                    }
                     victory(coinC);
                     break;
                 }
@@ -226,6 +263,7 @@
         var a = 0;
         for (x = 8; x >= 0; x--) {
             verify = "";
+
             var d = x - 3;
 
             if (d < 0) {
@@ -242,14 +280,35 @@
 
                 if ($(matrix[d][y]).hasClass(coinC)) {
                     verify += "w";
+                    diag1[verify.length - 1] = [d, y];
                 } else {
                     verify += "l";
                 }
 
                 if (verify.includes("wwww")) {
+                    var ver = verify.split("");
+                    var f;
+                    var j;
+                    var i = 0;
+                    callback();
+                    function callback() {
+                        setTimeout(function () {
+                            if (ver[i] == "w") {
+                                f = diag1[i][0];
+                                j = diag1[i][1];
+                                matrix[f][j].addClass("winning");
+                            }
+
+                            i++;
+                            if (i < ver.length) {
+                                callback();
+                            }
+                        }, 250);
+                    }
                     victory(coinC);
                     break;
                 }
+
                 d++;
             }
         }
@@ -261,6 +320,8 @@
     function diagonal2Check(coinC) {
         var a = 6;
         for (var b = 8; b > 0; b--) {
+            verify = "";
+
             x = b - 6;
             if (x < 0) {
                 x = 0;
@@ -276,10 +337,30 @@
 
                 if (matrix[x][y].hasClass(coinC)) {
                     verify += "w";
+                    diag2[verify.length - 1] = [x, y];
                 } else {
                     verify += "l";
                 }
                 if (verify.includes("wwww")) {
+                    var ver = verify.split("");
+                    var f;
+                    var j;
+                    var i = 0;
+                    callback();
+                    function callback() {
+                        setTimeout(function () {
+                            if (ver[i] == "w") {
+                                f = diag2[i][0];
+                                j = diag2[i][1];
+                                matrix[f][j].addClass("winning");
+                            }
+
+                            i++;
+                            if (i < ver.length) {
+                                callback();
+                            }
+                        }, 250);
+                    }
                     victory(coinC);
                     break;
                 }
@@ -384,7 +465,7 @@
             coin0.css("left", pix);
         }
         if (e.code == "Enter") {
-            if (zeroGravity == false) {
+            if (zeroGravity == "false") {
                 for (y = 6; y >= 0; y--) {
                     for (x = 5; x >= 0; x--) {
                         if ($(matrix[x][y]).hasClass(column)) {
@@ -447,6 +528,7 @@
     newGame.on("click", function () {
         for (x = 0; x < 6; x++) {
             for (y = 0; y < 7; y++) {
+                matrix[x][y].removeClass("winning");
                 matrix[x][y].removeClass("coin1");
                 matrix[x][y].removeClass("coin2");
             }

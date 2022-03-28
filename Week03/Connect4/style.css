@@ -79,7 +79,7 @@ main {
 #victory {
     z-index: 2;
     align-self: center;
-    top: 35vh;
+    top: 25px;
     font-size: 50px;
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     position: absolute;
@@ -91,6 +91,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 2px solid black;
     border-radius: 50%;
 
     transition: 500ms;
@@ -151,4 +152,9 @@ footer {
 .on {
     background-color: lime;
     border: 2px solid black;
+}
+
+.winning {
+    border: 25px solid red;
+    z-index: 2;
 }
