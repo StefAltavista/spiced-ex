@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.ticker {
+    position: relative;
+    width: 100%;
+    border: 1px black;
+    height: 1.5em;
+    overflow: hidden;
+}
+
+#albums {
+    position: absolute;
+    white-space: nowrap;
+    left: 50%;
+}
+
+#albums a {
+    padding-right: 40px;
+    /* border: 1px tomato dotted; */
+}
