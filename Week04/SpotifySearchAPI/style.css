@@ -12,9 +12,9 @@ body {
 }
 
 h1 {
-    top: 90px;
-
-    color: rgb(61, 61, 61);
+    margin-top: 80px;
+    margin-bottom: 40px;
+    color: rgb(77, 77, 77);
 }
 
 .results {
