@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Handlebars</title>
+    </head>
+    <body>
+        <script id="writers" type="text/x-handlebars-template">
+            <ul class="authors">
+                {{#authors}}
+                    <li class="author">
+                        {{name}}
+                        <ul class="books">
+                            {{#books}}
+                                <li class="book">{{title}}
+                            {{/books}}
+                        </ul>
+                {{/authors}}
+                </ul>
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
