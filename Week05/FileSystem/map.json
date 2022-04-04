@@ -1,0 +1,26 @@
+{
+    "README.md": 160,
+    "part1": {
+        "a": {
+            "images": {
+                "cats.png": 192,
+                "kitty1_150x150.jpg": 192,
+                "kitty2_150x150.jpg": 192,
+                "kitty3_150x150.jpg": 192
+            },
+            "index.html": 160,
+            "stylesheet.css": 160
+        },
+        "b": {
+            "images": {
+                "boxes.png": 96
+            },
+            "index.html": 160,
+            "stylesheet.css": 160
+        }
+    },
+    "part2": {
+        "index.html": 128,
+        "script.js": 128
+    }
+}
