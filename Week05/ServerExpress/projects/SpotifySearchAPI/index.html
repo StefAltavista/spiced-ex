@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Spotify Search</title>
+    </head>
+    <body>
+        <h1>Spot Hi-Fi</h1>
+        <div class="search">
+            <input type="text" class="input" placeholder="Search Music" />
+            <input list="type" placeholder="Type" class="type" /><datalist
+                id="type"
+            >
+                <option value="album"></option>
+                <option value="artist"></option>
+            </datalist>
+            <button type="button" id="searchButton">Search</button>
+            <input list="infinite" placeholder="Infinite Scroll" id="infiniteScrol" /><datalist
+                id="infinite"
+            >
+                <option value="Yes"></option>
+                <option value="No"></option>
+            </datalist>
+            
+        </div>
+
+        <div class="results"></div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

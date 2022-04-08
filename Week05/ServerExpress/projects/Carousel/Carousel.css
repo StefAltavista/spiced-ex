@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0%;
+    background-color: blanchedalmond;
+}
+.carousel {
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+
+.arrows {
+    z-index: 1;
+    width: 100%;
+    height: 600px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: stretch;
+}
+
+#left {
+    z-index: 2;
+    width: 10%;
+    height: 10%;
+    opacity: 0%;
+    transition: 500ms;
+}
+
+#right {
+    z-index: 2;
+    width: 10%;
+    height: 10%;
+    opacity: 0%;
+    transition: 500ms;
+}
+
+#left:hover {
+    opacity: 100%;
+}
+
+#right:hover {
+    opacity: 100%;
+}
+.carousel img {
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.carousel figure {
+    position: absolute;
+    margin: 0;
+    object-fit: cover;
+    transform: translateX(100%);
+    height: 100%;
+    width: 100%;
+    visibility: visible;
+    transition: 1s;
+}
+
+.carousel figure.onscreen {
+    transform: translateX(0%);
+}
+
+.carousel figure.offscreen {
+    transform: translateX(-100%);
+}
+
+.carousel figure.toright {
+    transform: translateX(100%);
+}
+
+.carousel figure.invisible {
+    display: none;
+}
