@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    font-family: "Courier New", Courier, monospace;
+}
+header {
+    margin-top: 50px;
+}
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input {
+    margin-top: 10%;
+    width: 100px;
+    height: 30px;
+}
+#results {
+    position: relative;
+    width: 100px;
+    height: auto;
+    background-color: antiquewhite;
+    transition: all 1s;
+}
+p {
+    overflow: hidden;
+}
+.hidden {
+    display: hidden;
+}
+
+.highlight {
+    background-color: lightgoldenrodyellow;
+}

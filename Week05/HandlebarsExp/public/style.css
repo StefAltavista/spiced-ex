@@ -1,0 +1,36 @@
+body {
+    font-family: "Courier New", Courier, monospace;
+    box-sizing: border-box;
+    background-color: rgb(163, 220, 170);
+}
+header {
+    margin: 50px;
+}
+.projects {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.projects img {
+    border-radius: 3px;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    object-fit: cover;
+    margin: 3px;
+    transition: 250ms;
+    margin: 25px;
+}
+.projects img:hover {
+    width: 210px;
+    height: 210px;
+}
+.each {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+:link {
+    color: black;
+}

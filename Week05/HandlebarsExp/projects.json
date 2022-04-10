@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Bidirection Carousel",
+        "directory": "Carousel",
+        "img": "/Carousel/screenshot.png"
+    },
+    {
+        "name": "Local Storage Memo",
+        "directory": "/LocalStorage",
+        "img": "/LocalStorage/screenshot.png"
+    },
+    {
+        "name": "Connect Four",
+        "directory": "/Connect4",
+        "img": "/Connect4/screenshot.png"
+    },
+    {
+        "name": "Incremental Search",
+        "directory": "IncrementalSearch",
+        "img": "/IncrementalSearch/screenshot.png"
+    }
+]
