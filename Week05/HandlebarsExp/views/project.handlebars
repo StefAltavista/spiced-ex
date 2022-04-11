@@ -1,0 +1,21 @@
+{{#foundProj}}
+    <header>
+        <h2>{{name}}</h2>
+{{/foundProj}}
+    </header>
+    <main>
+        <nav>
+            <h4>My Projects</h4>
+            <a href="/">Home</a>
+            {{#projects}}
+            {{> projectList img=false launch=false}}
+            {{/projects}}
+        </nav>
+        
+{{#foundProj}}
+        {{> projectList launch=true}}
+{{/foundProj}}
+       
+    </main>
+     <p>some info about the project</p>
+

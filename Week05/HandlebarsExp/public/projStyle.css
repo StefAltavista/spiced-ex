@@ -5,14 +5,20 @@ body {
 }
 header {
     margin: 50px;
+    margin-left: 0;
 }
-.projects {
+main {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: left;
 }
-.projects img {
+nav {
+    border: 2px solid green;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.project img {
     border-radius: 3px;
     width: 200px;
     height: 200px;
@@ -22,14 +28,18 @@ header {
     transition: 250ms;
     margin: 25px;
 }
-.projects img:hover {
+.project img:hover {
     width: 210px;
     height: 210px;
 }
 .project {
+    padding-left: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.project a {
+    margin-top: 20px;
 }
 :link {
     color: black;

@@ -1,12 +1,9 @@
 <header><h1>S. Altavista</h1>
     <h2>Projects</h2>
-    <p>Developped during the Spiced Accademy Bootcamp 2022</p>
+    <p>Developed during the Spiced Accademy Bootcamp 2022</p>
 </header>
 <div class="projects">
-    {{#projects}}
-        <div class="each">
-            <a href="{{directory}}"> <img src="{{img}}" /></a>
-            <a href="{{directory}}">{{name}}</a>
-        </div>
-
-    {{/projects}}</div>
+{{#projects}}
+    {{> projectList launch=false}}
+{{/projects}}
+    </div>

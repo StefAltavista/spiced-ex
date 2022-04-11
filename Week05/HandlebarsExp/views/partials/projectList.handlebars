@@ -1,0 +1,20 @@
+<div class="project">
+    {{#if img}}
+
+        {{#if launch}}
+            <a href="../{{directory}}">
+                <img src="{{img}}" /></a>
+        {{/if}}
+        {{#unless launch}}
+            <a href="projects/{{directory}}">
+                <img src="{{img}}" /></a>
+        {{/unless}}
+
+    {{/if}}
+
+    {{#if launch}}
+        <a href="../{{directory}}">{{name}}</a>{{/if}}
+    {{#unless launch}}
+        <a href="{{directory}}">{{name}}</a>{{/unless}}
+
+</div>

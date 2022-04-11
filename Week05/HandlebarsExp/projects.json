@@ -1,17 +1,17 @@
 [
     {
-        "name": "Bidirection Carousel",
+        "name": "Bidirectional Carousel",
         "directory": "Carousel",
         "img": "/Carousel/screenshot.png"
     },
     {
         "name": "Local Storage Memo",
-        "directory": "/LocalStorage",
+        "directory": "LocalStorage",
         "img": "/LocalStorage/screenshot.png"
     },
     {
         "name": "Connect Four",
-        "directory": "/Connect4",
+        "directory": "Connect4",
         "img": "/Connect4/screenshot.png"
     },
     {
