@@ -50,6 +50,7 @@ main {
     border: 7px solid white;
     border-radius: 50%;
     transition: 500ms;
+    background-color: black;
 }
 
 #board {

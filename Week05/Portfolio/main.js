@@ -1,6 +1,9 @@
+const indexPageGenerator = require("./index.js");
+
 const http = require("http");
 const path = require("path");
 const fs = require("fs");
+
 const extensions = [
     [".html", "text/html"],
     [".css", "text/css"],
@@ -27,8 +30,8 @@ http.createServer((req, res) => {
     }
 
     if (req.url == `/`) {
-        console.log("call Module index.html");
-        res.end();
+        res.writeHead(200, { "content-type": "text/html" });
+        res.end(indexPageGenerator);
         return;
     }
 
@@ -44,25 +47,18 @@ http.createServer((req, res) => {
 
     fs.stat(filePath, function (err, stats) {
         if (err) {
-            console.log("fs.stat err", err);
             return err404();
         }
 
         if (stats.isDirectory()) {
             if (!filePath.endsWith("/")) {
-                console.log("is directory but misses / Path:", filePath);
-
                 let nPath = path.join(req.url, "/");
                 res.writeHead(302, { location: nPath });
                 res.end();
             } else {
-                console.log("is directory ends with /", filePath);
-
                 filePath = path.join(filePath, "index.html");
-                console.log("check for index at: ", filePath);
                 fs.stat(filePath, (er) => {
                     if (!er) {
-                        console.log("index.html FOUND!");
                         res.writeHead(200, { "content-type": "text/html" });
                         let stream = fs.createReadStream(filePath);
 
@@ -72,20 +68,16 @@ http.createServer((req, res) => {
                         });
                         stream.pipe(res);
                     } else {
-                        console.log("check for index at... error:", err);
                         err404();
                     }
                 });
             }
         } else if (stats.isFile()) {
-            console.log("is file");
-
             fs.stat(filePath, (er) => {
                 let ext = path.extname(filePath);
                 for (let i = 0; i < extensions.length; i++) {
                     if (ext == extensions[i][0]) {
                         content = extensions[i][1];
-                        console.log(ext, content);
                     }
                 }
                 if (!er) {
@@ -94,16 +86,14 @@ http.createServer((req, res) => {
                     stream.pipe(res);
 
                     stream.on("error", (err) => {
-                        console.log("stream error:", err);
-                        err404();
+                        err404(err);
                     });
                 } else if (er) {
-                    console.log("is File fs stat error:", er);
                     err404();
                 }
             });
         }
     });
 }).listen(8080, () => {
-    console.log("listening!");
+    console.log("Listening port 8080");
 });
