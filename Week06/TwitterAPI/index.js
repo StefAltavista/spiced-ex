@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const getTweet = require("./getTweet.js");
-const fs = require("fs");
 
 let screen_name = "TheOnion";
 
