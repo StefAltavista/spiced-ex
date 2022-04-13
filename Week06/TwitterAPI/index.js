@@ -16,25 +16,29 @@ app.get("/tweets.json", (request, response) => {
             response.writeHead(500, "Content-Type: application/json");
             response.end("{ERROR:500}");
             return;
+        } else {
+            response.json(filterTweets(tweets));
         }
-
-        response.json(tweets);
     });
 });
-function write(tweets) {
-    fs.writeFile("tweets.json", tweets, null, (error) => {
-        return error;
+
+function filterTweets(tweets) {
+    let obj = [];
+    let text;
+    tweets.forEach((tweet, idx) => {
+        const fullText = tweet.full_text;
+        text = fullText.split("http")[0].trim();
+        obj[idx] = {};
+        obj[idx].text = text;
+
+        obj[idx].url = tweet.entities.urls[0].expanded_url;
+
+        console.log(obj[idx]);
     });
+
+    return obj;
 }
 
 app.listen(3000, () => {
     console.log("Listening to port 3000");
 });
-
-// console.log(tweets);
-// fs.writeFileSync("tweets.json", getTweets, (err) => {
-//     if (err) {
-//         console.log("error writing tweets in file ", err);
-//         return;
-//     }
-// });
