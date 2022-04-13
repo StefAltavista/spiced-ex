@@ -5,10 +5,6 @@ const fs = require("fs");
 
 let screen_name = "TheOnion";
 
-function formatTweets(tweets) {
-    return tweets;
-}
-
 app.get("/tweets.json", (request, response) => {
     getTweet(screen_name, (error, tweets) => {
         if (error) {
@@ -24,10 +20,9 @@ app.get("/tweets.json", (request, response) => {
 
 function filterTweets(tweets) {
     let obj = [];
-    let text;
     tweets.forEach((tweet, idx) => {
-        const fullText = tweet.full_text;
-        text = fullText.split("http")[0].trim();
+        let fullText = tweet.full_text;
+        let text = fullText.split("http")[0].trim();
         obj[idx] = {};
         obj[idx].text = text;
 
