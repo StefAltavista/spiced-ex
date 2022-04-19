@@ -64,6 +64,7 @@ function getTweet(screen_name, callback) {
         }
 
         token = data;
+
         makeRequest(
             {
                 method: "GET",
@@ -77,7 +78,6 @@ function getTweet(screen_name, callback) {
                     callback(error);
                     return;
                 }
-                //console.log("\nData:", data);
                 callback(null, data);
             }
         );
